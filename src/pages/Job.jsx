@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useLoaderData, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Job({ deleteJob }) {
 
@@ -16,6 +17,7 @@ function Job({ deleteJob }) {
         if (!confirm) return
 
         deleteJob(jobId)
+        toast.success('Job Deleted Successfully')
         navigate('/jobs')
     }
 
@@ -59,7 +61,7 @@ function Job({ deleteJob }) {
                 <div className='manage-job'>
                     <h3 className='font-bold'>Manage Job</h3>
                     <div className='job-cta-container'>
-                        <Link to={`/jobs/edit/${job.id}`} id='edit-btn' className='job-cta-btns'>Edit Job</Link>
+                        <Link to={`/edit-job/${job.id}`} id='edit-btn' className='job-cta-btns'>Edit Job</Link>
                         <button id='del-btn' className='job-cta-btns' onClick={() => onClickDelete(job.id)}>Delete Job</button>
                     </div>
                 </div>

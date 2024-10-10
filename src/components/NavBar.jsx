@@ -10,10 +10,12 @@ const NavBar = () => {
   return (
     <>
       <nav>
-        <div id='left-nav'>
-          <img src={logo} alt="a logo" style={{width: '2.2em'}} />
-          <p>React Jobs</p>
-        </div>
+        <NavLink to={'/'}>
+          <div id='left-nav'>
+            <img src={logo} alt="a logo" style={{width: '2.2em'}} />
+            <p>React Jobs</p>
+          </div>
+        </NavLink>
         <ul id='right-nav'>
           <li><NavLink to="/" className={linkClass}>Home</NavLink></li>
           <li><NavLink to="/jobs" className={linkClass}>Jobs</NavLink></li>

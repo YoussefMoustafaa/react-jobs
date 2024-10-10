@@ -1,6 +1,7 @@
 import React from 'react'
 import JobListing from './JobListing'
 import { useState, useEffect } from 'react'
+import Spinner from './Spinner'
 
 const JobListings = ({ isHome = false }) => {
 
@@ -31,7 +32,7 @@ const JobListings = ({ isHome = false }) => {
         </h2>
 
         <div id='jobs-grid'>
-          { loading ? <h2>Loading...</h2> : (
+          { loading ? <Spinner loading={loading}/> : (
             jobs.map((job) => (
                 <JobListing key={job.id} job={job} />
             ))
